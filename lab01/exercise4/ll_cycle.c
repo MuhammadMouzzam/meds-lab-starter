@@ -4,6 +4,7 @@
 int ll_has_cycle(node *head) {
     node *fast_ptr = head;
     node *slow_ptr = head;
+    
     do{
         if(head == NULL || fast_ptr->next == NULL){
             return 0;
