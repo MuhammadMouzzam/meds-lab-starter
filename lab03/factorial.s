@@ -22,3 +22,28 @@ main:
 
 factorial:
     # YOUR CODE HERE
+    bge zero, a0, fact_true
+    
+fact_false:
+
+    #PREAMBLE: Start
+    addi sp, sp -8
+    sw ra, 0(sp)
+    sw a0, 4(sp)
+    #PREAMBLE: End
+    
+    addi a0, a0, -1
+    jal ra, factorial
+    
+    #POSTAMBLE: Start
+    lw ra, 0(sp)
+    lw t1, 4(sp)
+    addi sp, sp, 8
+    #POSTAMBLE: End
+    
+    mul a0, a0, t1
+    ret
+    
+fact_true:
+    addi a0, zero, 1
+    ret    
